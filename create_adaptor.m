@@ -24,14 +24,14 @@ function adaptor = create_adaptor(start,bigstep,littlestep,down,up,varargin)
 % 'mult' = 0 - whether steps should be multiplicative (1) or not
 % (0).
 %
-% 'min_delta' = -Inf. The smallest delta allowed. 
+% 'min_delta' = 0. The smallest delta allowed. 
 
 args.big_reverse = 3;
 args.drop_reversals = 3;
 args.min_reversals = 7;
 args.mult = 0;
-args.min_delta = -Inf;
-if length(varargin) > 0
+args.min_delta = 0;
+if ~isempty(varargin)
     args = parseargs(args,varargin);
 end
 
@@ -45,7 +45,7 @@ adaptor.drop_reversals = args.drop_reversals;
 adaptor.min_reversals = args.min_reversals;
 adaptor.mult = args.mult;
 
-adaptor.num_correct = 0
+adaptor.num_correct = 0;
 adaptor.num_incorrect = 0;
 adaptor.reversals = [];
 adaptor.last_direction = 0;
