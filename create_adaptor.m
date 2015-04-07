@@ -4,7 +4,7 @@ function adaptor = create_adaptor(start,bigstep,littlestep,down,up,varargin)
 %
 % Create a new adaptive track which begins with a delta of 'start'
 % and moves up and down according to 'bigstep' until a number of
-% reversals, at which point it uses littestep. The number of
+% reversals, at which point it uses 'littestep'. The number of
 % incorrect responses to move up is equal to 'up' and the number
 % of correct responses required to move down is equal to 'down'.
 %
@@ -32,7 +32,7 @@ args.min_reversals = 7;
 args.mult = 0;
 args.min_delta = 0;
 if ~isempty(varargin)
-    args = parseargs(args,varargin);
+    args = parseargs(args,varargin{:});
 end
 
 adaptor.min_delta = args.min_delta;
